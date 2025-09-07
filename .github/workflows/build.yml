@@ -43,7 +43,7 @@ jobs:
     - name: Typescript compiler
       run: /usr/local/bin/node /home/runner/work/SturmovikCampaignWeb/SturmovikCampaignWeb/node_modules/typescript/bin/tsc
         
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: web-image
         path: |
