@@ -1,5 +1,4 @@
 /// <reference types="leaflet" />
-/// <reference types="bootstrap" />
 /// <reference path="./util.ts" />
 /// <reference path="./types.ts" />
 /// <reference path="./dataSource.ts" />

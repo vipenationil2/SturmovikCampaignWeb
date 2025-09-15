@@ -1,10 +1,10 @@
-/// <reference types="bootstrap" />
-/// <reference types="plotly.js" />
 /// <reference path="./util.ts" />
 /// <reference path="./types.ts" />
 /// <reference path="./dataSource.ts" />
 /// <reference path="./config.ts" />
 /// <reference path="./common.ts" />
+
+import Plotly from 'plotly.js';
 
 // Various HTML elements to hook on
 const graphDiv = document.getElementById("visualization")

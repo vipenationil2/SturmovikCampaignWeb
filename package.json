@@ -1,6 +1,6 @@
 {
   "name": "sturmovikcampaignclient",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web site to visualize dynamic campaigns for IL-2 Sturmovik: Great Battles",
   "main": "js/client.js",
   "scripts": {
@@ -8,17 +8,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deneuxj/SturmovikCampaignWeb.git"
+    "url": "git+https://github.com/vipenationil2/SturmovikCampaignWeb.git"
   },
-  "author": "Johann Deneux",
+  "author": "wonkotron",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/deneuxj/SturmovikCampaignWeb/issues"
+    "url": "https://github.com/vipenationil2/SturmovikCampaignWeb/issues"
   },
-  "homepage": "https://github.com/deneuxj/SturmovikCampaignWeb#readme",
+  "homepage": "https://github.com/vipenationil2/SturmovikCampaignWeb#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
-    "@types/bootstrap": "^4.3.1",
-    "@types/leaflet": "^1.5.12",
-    "@types/plotly.js": "^1.50.0"
+    "bootstrap": "^5.3.8",
+    "leaflet": "^1.9.4",
+    "plotly.js": "^2.35.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/leaflet": "^1.9.4",
+    "@types/plotly.js": "^2.35.3"
   }
 }

@@ -1,4 +1,3 @@
-/// <reference types="bootstrap" />
 /// <reference path="./config.ts" />
 /// <reference path="./util.ts" />
 /// <reference path="./types.ts" />
