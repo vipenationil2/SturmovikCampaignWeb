@@ -504,7 +504,7 @@ map.on("load", async() => {
     // The tiles of the map, using il2missionplanner.com
     const mapTiles = new L.TileLayer(config.tilesUrlTemplate(world.Map),
         {
-            tms: true,
+            tms: false,
             noWrap: true,
             minNativeZoom: 1,
             maxNativeZoom: 6,
