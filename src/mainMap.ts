@@ -105,7 +105,7 @@ class BorderRenderer {
 // Bounds of each map (regardless of season variants) in leaflet's coordinate system
 const bounds = {
     rheinland: new L.LatLngBounds([-90, -180], [-10.87, -82.13]),
-    stalingrad: new L.LatLngBounds([-90, -180], [25.471, 0]),
+    stalingrad: new L.LatLngBounds([-25.625, -180], [89.846, 0]),
     kuban: new L.LatLngBounds([-90, -180], [-19.75, -78.52]),
     moscow: new L.LatLngBounds([-90, -180], [45, -45])
 }
@@ -157,7 +157,7 @@ function plannerIconRE(color: "red" | "black" | "blue", basename: string) {
     return plannerIcon(`${color}-re-${basename}.png`, [35, 35])
 }
 
-// Icons, also using il2missionplanner.com
+// Icons, using github.com/ServError/IL2-Mission-Planner
 const icons = {
     city: {
         red: plannerIconRE("red", "point"),
@@ -501,7 +501,7 @@ map.on("load", async() => {
     if (world == null)
         return
 
-    // The tiles of the map, using il2missionplanner.com
+    // The tiles of the map, using github.com/ServError/IL2-Mission-Planner-Revived-Tiles
     const mapTiles = new L.TileLayer(config.tilesUrlTemplate(world.Map),
         {
             tms: false,
@@ -510,7 +510,7 @@ map.on("load", async() => {
             maxNativeZoom: 6,
             maxZoom: 7,
             zoomOffset: 0,
-            attribution: "il2missionplanner.com"
+            attribution: "github.com/ServError/IL2-Mission-Planner-Revived-Tiles"
         })
     mapTiles.addTo(map)
 
@@ -519,6 +519,16 @@ map.on("load", async() => {
     const mapBounds = getMapBounds(world.Map)
     if (mapBounds != undefined)
         map.fitBounds(mapBounds)
+
+    // Brute force select latest day on page load
+    if (dayslist) {
+        var latestDay = dayslist?.lastElementChild
+        if(latestDay) {
+            var clickEvent = new MouseEvent("click", {})
+            latestDay.dispatchEvent(clickEvent)
+        }
+    }
+
 })
 
 // Debug: show leaflet coordinates when clicking on the map
@@ -534,12 +544,15 @@ map.on("zoomend", (args: L.LeafletEvent) => {
     removeMarkers(airfieldMarkers)
     removeMarkersArray(transportPolys)
     removeMarkersArray(bridgeMarkers)
-    if (zoom >= 4) {
+    if (zoom >= 2) {
         restoreMarkers(regionMarkers)
+    }
+
+    if (zoom >= 4) {
         restoreMarkers(airfieldMarkers)
+        restoreMarkersArray(transportPolys)
     }
     if (zoom >= 5) {
-        restoreMarkersArray(transportPolys)
         restoreMarkersArray(truckMarkers)
         restoreMarkersArray(bridgeMarkers)
     }
