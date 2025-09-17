@@ -4,8 +4,6 @@
 /// <reference path="./config.ts" />
 /// <reference path="./common.ts" />
 
-import Plotly from 'plotly.js';
-
 // Various HTML elements to hook on
 const graphDiv = document.getElementById("visualization")
 
